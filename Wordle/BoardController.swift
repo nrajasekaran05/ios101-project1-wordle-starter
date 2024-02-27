@@ -45,10 +45,9 @@ class BoardController: NSObject,
       // Tip: Use the transform property of the cell. Use transform.scaledBy to modify the scale. This should feel familiar to lab 1.
       // Checkpoint: After finishing this exercise, you should now be able to see that the board animates whenever you enter a new letter! If it's not animating, check your work on this exercise.
       // START YOUR CODE HERE
-      // ...
       // END YOUR CODE HERE
     }, completion: { finished in
-      cell.transform = CGAffineTransformIdentity
+        cell.transform = cell.transform.scaledBy(x: 1.05, y: 1.05)
     })
     if isFinalGuessInRow() {
       markLettersInRow()
@@ -65,6 +64,10 @@ class BoardController: NSObject,
     // Checkpoint: After finishing this exercise, you should now be able to tap on the delete keyboard cell and have the last letter deleted on the board! If it's not working, check your work on this exercise and make sure deleteLastCharacter() is called properly in exercise 3.
     // START YOUR CODE HERE
     // ...
+      cell.clearLetter()
+      cell.set(style: LetterCellStyle.initial)
     // END YOUR CODE HERE
   }
 }
+
+
